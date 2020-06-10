@@ -1,13 +1,15 @@
 :root {
   --my-back: #607d8b;
   --grains: #cfdbd5;
-  --lighGray: #e8eddf;
+  --lighGray: #696969;
   --gold: #f5cb5c;
   --black: #242423;
   --darkGray: #333533;
-  --white: #f1f1f1;
+  --white: #d1d1d1;
+  --shadow: 5px 8px 9px #535353;
 }
 
+body,
 h2,
 p,
 li,
@@ -23,7 +25,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--darkGray);
+  background-color: #111;
   color: var(--black);
 }
 
@@ -34,57 +36,87 @@ main {
   display: grid;
   grid-template-columns: repeat(2, 50%);
   grid-template-rows: 40% 1fr;
-  box-shadow: 2px 5px 20px black;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: whitesmoke;
-}
-
-.landing {
-  background-color: white;
-  grid-column: 1 / span 2;
+  max-width: 940px;
 }
 
 .container {
   padding: 20px;
-  padding-left: 30px;
-  font-size: 62.5%;
+  font-size: 1rem;
   display: flex;
   flex-flow: column;
   justify-content: space-around;
 }
 
+.landing {
+  background-color: #f9f9f9;
+  grid-column: 1 / span 2;
+}
+
 .landing__title {
-  font-size: 5em;
+  font-size: 4rem;
   font-weight: 900;
   color: var(--darkGray);
 }
 
-.landing__subtitle {
-  font-weight: 400;
-  font-size: 4em;
+.landing__detail {
+  font-weight: 700;
+  font-size: 2.2rem;
   color: var(--gold);
+
+}
+
+.subtitle {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-top: 30px;
+}
+
+.landing__text {
+  line-height: 35px;
 }
 
 .minor__title {
   letter-spacing: 2px;
-  font-size: 3.4em;
+  font-size: 2rem;
   font-weight: 900;
-  color: var(--darkGray);
-}
-
-.landing__text {
-  color: gray;
-  line-height: 35px;
-
 }
 
 .subscript {
   grid-column: 1;
   grid-row: 2;
+  background-color: var(--lighGray);
+  color: var(--white);
+}
+
+.subscript__detail {
+  line-height: 50px;
+}
+
+.subscript__price {
+  color: var(--gold);
+  font-size: 4rem;
+  font-weight: 900;
+  vertical-align: top;
+  margin-right: 10px;
+}
+
+.action__button {
+  padding: 20px;
+  width: 250px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  font-weight: 800;
+  background: var(--gold);
+  color: var(--black);
+  font-size: 3rem;
+  border: none;
 }
 
 .reason {
-
+  background-color: var(--darkGray);
+  color: var(--white);
   grid-column: 2;
   grid-row: 2;
 }
@@ -94,21 +126,8 @@ main {
   line-height: 30px;
 }
 
-.subscript__price {
-  color: var(--gold);
-  font-size: 6em;
-  font-weight: 900;
-  margin-right: 10px;
-}
+.sale {
+  height: 55px;
 
-.action__button {
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 5px 8px 9px gray;
-  font-weight: 800;
-  background: var(--gold);
-  color: var(--black);
-  font-size: 4em;
-  border: none;
-
+  color: #ccc;
 }
