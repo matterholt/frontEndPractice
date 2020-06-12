@@ -19,8 +19,13 @@ function gen_css(cb) {
   cb();
 }
 
+function watchFile(cb) {
+  watch("./src_view/**.pug", html_gen);
+}
+
 exports.css = gen_css;
 exports.html = html_gen;
+exports.watch = watchFile;
 
 // exports.default = series(parallel(html_gen));
 exports.default = series(parallel(html_gen, gen_css));
