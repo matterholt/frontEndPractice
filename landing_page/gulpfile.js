@@ -3,6 +3,7 @@ const { src, dest, watch, parallel, series } = require("gulp");
 const pug = require("gulp-pug");
 const sass = require("gulp-sass");
 const rename = require("gulp-rename");
+const sync = require("browser-sync").create();
 
 function html_gen(cb) {
   src("src_view/*.pug")
@@ -21,6 +22,7 @@ function gen_css(cb) {
 
 function watchFile(cb) {
   watch("./src_view/**.pug", html_gen);
+  watch("./src_view/sass/**.scss", gen_css);
 }
 
 exports.css = gen_css;
