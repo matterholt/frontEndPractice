@@ -4,6 +4,7 @@ const pug = require("gulp-pug");
 const sass = require("gulp-sass");
 const rename = require("gulp-rename");
 const sync = require("browser-sync").create();
+var reload = sync.reload;
 
 const fileLoc = {
   scss: "src_view/sass/**/*.scss",
@@ -13,7 +14,7 @@ const fileLoc = {
 
 const temp_env = "";
 
-function gen_css(cb) {
+function gen_css() {
   // file location
   return (
     src(fileLoc.scss)
@@ -23,14 +24,14 @@ function gen_css(cb) {
       .pipe(dest("public/stylesheets"))
       .pipe(sync.stream())
   );
-  cb();
 }
 
-function html_gen(cb) {
+function html_gen() {
   return src(fileLoc.htmlPug)
     .pipe(rename({ extname: ".html" }))
     .pipe(pug({ pretty: true }))
-    .pipe(dest("public"));
+    .pipe(dest("public"))
+    .pipe(sync.stream());
   cb();
 }
 
@@ -38,20 +39,11 @@ function watchFile() {
   sync.init({
     server: {
       baseDir: "./public",
-      index: "/index.html",
     },
   });
-  // watch(fileLoc.htmlPug, html_gen);
   watch(fileLoc.scss, gen_css);
-  watch("./*.html").on("change", sync.reload);
+  watch(fileLoc.htmlPug, html_gen).on("change", sync.reload);
 }
 
 exports.css = gen_css;
-// exports.html = html_gen;
-// exports.watch = watchFile;
-
-// exports.sync = browserSync;
-// exports.default = series(parallel(html_gen, gen_css));
-// exports.css = gen_css;
-// exports.html = html_gen;
 exports.watch = watchFile;
