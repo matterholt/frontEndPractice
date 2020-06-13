@@ -16,7 +16,8 @@ function html_gen(cb) {
 function gen_css(cb) {
   src("src_view/sass/**/*.scss")
     .pipe(sass().on("error", sass.logError))
-    .pipe(dest("public/stylesheets"));
+    .pipe(dest("public/stylesheets"))
+    .pipe(sync.stream());
   cb();
 }
 
@@ -25,9 +26,21 @@ function watchFile(cb) {
   watch("./src_view/sass/**.scss", gen_css);
 }
 
-exports.css = gen_css;
-exports.html = html_gen;
-exports.watch = watchFile;
+function browserSync(cd) {
+  sync.init({
+    server: {
+      baseDir: "./public",
+    },
+  });
+  watch("./src_view/**/*.pug", html_gen);
+  watch("./src_view/sass/**.scss", gen_css);
+  watch("./public/**/*.html").on("change", sync.reload);
+}
 
-// exports.default = series(parallel(html_gen));
+// exports.css = gen_css;
+// exports.html = html_gen;
+// exports.watch = watchFile;
+
+exports.sync = browserSync;
+
 exports.default = series(parallel(html_gen, gen_css));

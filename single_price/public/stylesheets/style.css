@@ -111,3 +111,8 @@ main {
 .sale {
   height: 55px;
   color: #ccc; }
+
+.footer {
+  background-color: rebeccapurple;
+  color: grey;
+  width: 100vw; }
