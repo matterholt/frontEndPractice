@@ -1,0 +1,10 @@
+body {
+  background-color: gray; }
+  body h1 {
+    color: wheat; }
+  body p {
+    color: royalblue; }
+
+.title {
+  color: navy;
+  font-size: 10rem; }

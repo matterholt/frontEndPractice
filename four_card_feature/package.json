@@ -1,0 +1,28 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matterholt/frontEndPractice.git"
+  },
+  "author": "MAtterholt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matterholt/frontEndPractice/issues"
+  },
+  "homepage": "https://github.com/matterholt/frontEndPractice#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.1.0",
+    "gulp-pug": "^4.0.1",
+    "gulp-rename": "^2.0.0",
+    "pug": "^3.0.0"
+  },
+  "dependencies": {}
+}
