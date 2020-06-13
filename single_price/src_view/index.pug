@@ -1,32 +1,30 @@
-<!DOCTYPE html>
-    title Staff Directory
-    link(rel='stylesheet' href='stylesheets/style.css')
+html
+  include includes/head.pug
+  main
+    .priceCard
+      .container.landing
+        h2.landing__title Join Our Community
+        p.landing__detail 20-day, hassle-free money back guarantee
+        .landing__text
+          p Gain access to our full library of tutorials along with expert code review.
+          p Perfect for any developer who are serious about honing their skills.
+        
+      .container.subscript
+        h2.subtitle Monthly Subscription
+        .subscript__detail
+          p.sale #[span(class = "subscript__price") 29$] per month
+          p Full access fo less the $1 day
+        button.action__button Sign Up
 
-main
-  .priceCard
-    .container.landing
-      h2.landing__title Join Our Community
-      p.landing__detail 20-day, hassle-free money back guarantee
-      .landing__text
-        p Gain acces to our full library of tutorials along with expert code review.
-        p Perfect for any developer who are serious about honin their skils.
-      
-    .container.subscript
-      h2.subtitle Monthly Subscription
-      .subscript__detail
-        p.sale #[span(class = "subscript__price") 29$] per month
-        p Full acces fo less the $1 day
-      button.action__button Sign Up
-
-    .container.reason
-      h2.subtitle Why Us
-      ul.reason__list
-        li Tutorial by industry experts
-        li Peer & experts code review
-        li Coding exercises
-        li Access to out GitHub Repos
-        li Community Forum
-        li Flashcard Deck
-        li New video every week
+      .container.reason
+        h2.subtitle Why Us
+        ul.reason__list
+          li Tutorial by industry experts
+          li Peer & experts code review
+          li Coding exercises
+          li Access to out GitHub Repos
+          li Community Forum
+          li Flashcard Deck
+          li New video every week
 
 
