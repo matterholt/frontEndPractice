@@ -1,5 +1,7 @@
 import useWindowSize from "../hooks/useWindowSize";
 
+import HamburgerButton from "./HamburgerButton";
+
 function LogoContainer() {
   return (
     <>
@@ -28,6 +30,7 @@ function LogoContainer() {
 function BurgerMenu() {
   return (
     <>
+      <ButtonStyles />
       <ul>
         <li>Location</li>
         <li>Hours</li>
@@ -35,73 +38,6 @@ function BurgerMenu() {
         <li>Connect</li>
         <li>Contact</li>
       </ul>
-      <style jsx>{`
-        ul {
-          display: flex;
-          justify-content: right;
-          align-items: center;
-          flex-flow: column;
-          list-style: none;
-          flex-grow: 2;
-          margin: 0;
-          padding: 0;
-          font-size: 2rem;
-          text-align: center;
-          position: absolute;
-          right: 0;
-          top: 0;
-          background-color: gray;
-        }
-        li {
-          width: 100px;
-          padding: 1rem;
-          margin: 15px;
-          font-weight: 900;
-        }
-        li:hover {
-          background-color: cadetblue;
-        }
-      `}</style>
-    </>
-  );
-}
-function LargeMenu() {
-  return (
-    <>
-      <ul>
-        <li>Location</li>
-        <li>Hours</li>
-        <li>Events</li>
-        <li>Connect</li>
-        <li>Contact</li>
-      </ul>
-      <style jsx>{`
-        ul {
-          display: flex;
-          justify-content: right;
-          align-items: center;
-          flex-wrap: wrap;
-          list-style: none;
-          flex-grow: 2;
-          margin: 0;
-          padding: 0;
-          font-size: 2rem;
-          text-align: center;
-        }
-        @media (max-width: 768px) {
-          ul {
-            justify-content: space-evenly;
-          }
-        }
-        li {
-          width: 100px;
-          margin: 10px;
-          font-weight: 900;
-        }
-        li:hover {
-          color: cadetblue;
-        }
-      `}</style>
     </>
   );
 }
@@ -130,34 +66,12 @@ function NavItems() {
   );
 }
 
-const TESTING = (props) => {
-  return (
-    <div>
-      testing <br />
-      {props.size.width}px / {props.size.height}px
-      <style jsx>{`
-        div {
-          position: absolute;
-          width: 100vw;
-          height: 250px;
-          background-color: #000080cf;
-          font-size: 3rem;
-          display: grid;
-          place-items: center;
-          color: white;
-          top: 0;
-          left: 0;
-        }
-      `}</style>
-    </div>
-  );
-};
-
 export default function TopNavBar() {
   const size = useWindowSize();
 
   return (
     <nav className="nav_container">
+      <HamburgerButton />
       <LogoContainer />
       <NavItems />
       <style global jsx>{`
@@ -192,6 +106,8 @@ export default function TopNavBar() {
             right: 0;
             top: 0;
             background-color: gray;
+            height: 100vh;
+            width: 30vw;
           }
         }
       `}</style>
