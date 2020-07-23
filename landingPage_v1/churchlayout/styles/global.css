@@ -1,4 +1,23 @@
-body {
+html {
+    font-size: 62.5%;
+}
+
+body,
+h1,
+h2,
+h3,
+p {
     margin: 0;
     padding: 0;
+}
+
+body {
+
+    font-family: Lato;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: .01em;
+    line-height: 1.8em;
+    text-transform: none;
+    color: #000;
 }
