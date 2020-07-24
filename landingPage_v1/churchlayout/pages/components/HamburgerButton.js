@@ -12,7 +12,8 @@ function HamburgerIcons({ handleChange, isOpen }) {
         {`
           button {
             position: absolute;
-            top: 30%;
+            top: 50%;
+
             right: ${isOpen ? "85vw" : "10vw"};
             display: flex;
             flex-direction: column;

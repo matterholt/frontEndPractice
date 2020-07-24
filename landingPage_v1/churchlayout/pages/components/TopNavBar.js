@@ -22,7 +22,6 @@ function LogoContainer() {
         @media (max-width: ${mediaQueries.med}px) {
           .LogoContainer {
             width: 100vw;
-            height: 100px;
           }
         }
       `}</style>
@@ -39,7 +38,9 @@ function NavItems({ windowSize, isOpen, handleChange }) {
         handleChange={handleChange}
       />
       <ul className="nav_listItems">
-        <li>Location</li>
+        <li onClick={() => handleChange()}>
+          <a href="#testing">Location</a>
+        </li>
         <li>Hours</li>
         <li>Events</li>
         <li>Connect</li>
@@ -117,15 +118,13 @@ export default function TopNavBar() {
       <style global jsx>{`
         .nav_container {
           display: flex;
-          position: absolute;
-          z-index: 8;
-          top: 0;
-          left: 0;
           flex-wrap: wrap;
-          width: 100vw;
-          height: auto;
           margin: 0;
           padding: 0;
+          background-color: white;
+          position: relative;
+          top: 0;
+          right: 0;
         }
       `}</style>
     </nav>

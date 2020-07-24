@@ -8,12 +8,14 @@ export default function Layout(props) {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <TopNavBar />
 
       <main>{props.children}</main>
       <style jsx>
         {`
           .container {
+            overflow: hidden;
           }
           main {
             display: flex;

@@ -11,6 +11,7 @@ function ContentContainer(props) {
             display: grid;
             place-items: center;
             font-size: 4rem;
+            height: 100vh;
           }
         `}
       </style>
