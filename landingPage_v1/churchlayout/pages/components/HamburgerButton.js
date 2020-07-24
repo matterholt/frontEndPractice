@@ -1,6 +1,6 @@
-import { useState } from "react";
+import mediaQueries from "../helpers/mediaQueries";
 
-function HamburgerButton({ handleChange, isOpen }) {
+function HamburgerIcons({ handleChange, isOpen }) {
   return (
     <span>
       <button onClick={() => handleChange()}>
@@ -12,7 +12,7 @@ function HamburgerButton({ handleChange, isOpen }) {
         {`
           button {
             position: absolute;
-            top: 30%;
+            top: 6%;
             right: ${isOpen ? "85vw" : "10vw"};
             display: flex;
             flex-direction: column;
@@ -54,5 +54,16 @@ function HamburgerButton({ handleChange, isOpen }) {
     </span>
   );
 }
+const HamburgerButton = ({ windowSize, isOpen, handleChange }) => {
+  if (windowSize.width <= mediaQueries.sm) {
+    return (
+      <>
+        <HamburgerIcons handleChange={handleChange} isOpen={isOpen} />
+      </>
+    );
+  } else {
+    return null;
+  }
+};
 
 export default HamburgerButton;

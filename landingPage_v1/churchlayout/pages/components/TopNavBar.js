@@ -3,7 +3,10 @@ import useWindowSize from "../hooks/useWindowSize";
 
 import HamburgerButton from "./HamburgerButton";
 
+import mediaQueries from "../helpers/mediaQueries";
+
 function LogoContainer() {
+  console.log(mediaQueries);
   return (
     <>
       <h1 className="LogoContainer">LOGO</h1>
@@ -17,7 +20,7 @@ function LogoContainer() {
           display: grid;
           place-items: center;
         }
-        @media (max-width: 768px) {
+        @media (max-width: ${mediaQueries.med}px) {
           .LogoContainer {
             width: 100vw;
             height: 100px;
@@ -28,22 +31,10 @@ function LogoContainer() {
   );
 }
 
-const HamburgerSwitch = ({ windowSize, isOpen, handleChange }) => {
-  if (windowSize.width <= 600) {
-    return (
-      <>
-        <HamburgerButton handleChange={handleChange} isOpen={isOpen} />
-      </>
-    );
-  } else {
-    return null;
-  }
-};
-
 function NavItems({ windowSize, isOpen, handleChange }) {
   return (
-    <div className="nav_container">
-      <HamburgerSwitch
+    <>
+      <HamburgerButton
         windowSize={windowSize}
         isOpen={isOpen}
         handleChange={handleChange}
@@ -81,7 +72,7 @@ function NavItems({ windowSize, isOpen, handleChange }) {
           text-align: center;
           flex-wrap: wrap;
         }
-        @media (max-width: 768px) {
+        @media (max-width: ${mediaQueries.med}px) {
           .nav_listItems {
             justify-content: space-evenly;
           }
@@ -93,7 +84,7 @@ function NavItems({ windowSize, isOpen, handleChange }) {
             position: absolute;
             right: 0;
             top: 0;
-            background-color: gray;
+            background-color: white;
             height: 100vh;
             width: 100vw;
             transform: ${isOpen ? "translate(0)" : "translate(100%)"};
@@ -101,7 +92,7 @@ function NavItems({ windowSize, isOpen, handleChange }) {
           }
         }
       `}</style>
-    </div>
+    </>
   );
 }
 
