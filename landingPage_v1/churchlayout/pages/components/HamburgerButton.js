@@ -2,7 +2,7 @@ import mediaQueries from "../helpers/mediaQueries";
 
 function HamburgerIcons({ handleChange, isOpen }) {
   return (
-    <span>
+    <>
       <button onClick={() => handleChange()}>
         <div />
         <div />
@@ -51,7 +51,7 @@ function HamburgerIcons({ handleChange, isOpen }) {
           }
         `}
       </style>
-    </span>
+    </>
   );
 }
 const HamburgerButton = ({ windowSize, isOpen, handleChange }) => {

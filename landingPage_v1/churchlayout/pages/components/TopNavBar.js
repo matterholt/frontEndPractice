@@ -6,7 +6,6 @@ import HamburgerButton from "./HamburgerButton";
 import mediaQueries from "../helpers/mediaQueries";
 
 function LogoContainer() {
-  console.log(mediaQueries);
   return (
     <>
       <h1 className="LogoContainer">LOGO</h1>
@@ -55,11 +54,6 @@ function NavItems({ windowSize, isOpen, handleChange }) {
         li:hover {
           color: cadetblue;
         }
-        .nav_container {
-          position: relative;
-          top: 0;
-          left: 0;
-        }
         .nav_listItems {
           display: flex;
           justify-content: right;
@@ -88,7 +82,7 @@ function NavItems({ windowSize, isOpen, handleChange }) {
             height: 100vh;
             width: 100vw;
             transform: ${isOpen ? "translate(0)" : "translate(100%)"};
-            transition: transform 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
           }
         }
       `}</style>
@@ -123,7 +117,13 @@ export default function TopNavBar() {
       <style global jsx>{`
         .nav_container {
           display: flex;
+          position: absolute;
+          z-index: 8;
+          top: 0;
+          left: 0;
           flex-wrap: wrap;
+          width: 100vw;
+          height: auto;
           margin: 0;
           padding: 0;
         }

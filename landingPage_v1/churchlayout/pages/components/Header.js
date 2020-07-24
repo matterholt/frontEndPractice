@@ -7,7 +7,9 @@ export default function Header() {
           header {
             width: 100%;
             background: lightgray;
-            height: 95vh;
+            height: 80vh;
+            display: grid;
+            place-items: center;
           }
         `}
       </style>
