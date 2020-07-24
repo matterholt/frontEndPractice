@@ -1,3 +1,4 @@
+import { useState } from "react";
 import useWindowSize from "../hooks/useWindowSize";
 
 import HamburgerButton from "./HamburgerButton";
@@ -27,25 +28,29 @@ function LogoContainer() {
   );
 }
 
-function BurgerMenu() {
-  return (
-    <>
-      <ButtonStyles />
-      <ul>
-        <li>Location</li>
-        <li>Hours</li>
-        <li>Events</li>
-        <li>Connect</li>
-        <li>Contact</li>
-      </ul>
-    </>
-  );
-}
+const HamburgerSwitch = ({ windowSize }) => {
+  const [isOpen, setOpen] = useState(false);
+
+  const handleChange = () => {
+    setOpen(!isOpen);
+  };
+
+  if (windowSize.width < 600) {
+    return (
+      <>
+        <HamburgerButton handleChange={handleChange} isOpen={isOpen} />
+        {isOpen ? <NavItems /> : null}
+      </>
+    );
+  } else {
+    return <NavItems />;
+  }
+};
 
 function NavItems() {
   return (
     <>
-      <ul className="nav_listItems" style={{}}>
+      <ul className="nav_listItems">
         <li>Location</li>
         <li>Hours</li>
         <li>Events</li>
@@ -60,26 +65,6 @@ function NavItems() {
         }
         li:hover {
           color: cadetblue;
-        }
-      `}</style>
-    </>
-  );
-}
-
-export default function TopNavBar() {
-  const size = useWindowSize();
-
-  return (
-    <nav className="nav_container">
-      <HamburgerButton />
-      <LogoContainer />
-      <NavItems />
-      <style global jsx>{`
-        .nav_container {
-          display: flex;
-          flex-wrap: wrap;
-          margin: 0;
-          padding: 0;
         }
         .nav_listItems {
           display: flex;
@@ -109,6 +94,25 @@ export default function TopNavBar() {
             height: 100vh;
             width: 30vw;
           }
+        }
+      `}</style>
+    </>
+  );
+}
+
+export default function TopNavBar() {
+  const size = useWindowSize();
+  return (
+    <nav className="nav_container">
+      <LogoContainer />
+      <HamburgerSwitch windowSize={size} />
+
+      <style global jsx>{`
+        .nav_container {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0;
+          padding: 0;
         }
       `}</style>
     </nav>

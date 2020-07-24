@@ -1,15 +1,9 @@
 import { useState } from "react";
 
-function HamburgerButton() {
-  const [isOpen, setOpen] = useState(true);
-
+function HamburgerButton({ handleChange, isOpen }) {
   return (
     <>
-      <button
-        onClick={() => {
-          setOpen(!isOpen);
-        }}
-      >
+      <button onClick={() => handleChange()}>
         <div />
         <div />
         <div />
@@ -19,7 +13,7 @@ function HamburgerButton() {
           button {
             position: absolute;
             top: 5%;
-            left: 2rem;
+            right: 2rem;
             display: flex;
             flex-direction: column;
             justify-content: space-around;
@@ -38,7 +32,7 @@ function HamburgerButton() {
           div {
             width: 2rem;
             height: 0.25rem;
-            background: ${isOpen ? "gray" : "navy"};
+            background: ${isOpen ? "blue" : "navy"};
             border-radius: 10px;
             transition: all 0.3s linear;
             position: relative;
