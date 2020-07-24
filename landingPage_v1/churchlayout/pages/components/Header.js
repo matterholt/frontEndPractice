@@ -1,13 +1,16 @@
 export default function Header() {
   return (
     <header>
-      <p> Come to this church</p>
+      <img
+        className="full_image"
+        src="../simple_image_lg.png"
+        alt="some random image"
+      />
       <style jsx>
         {`
           header {
             width: 100%;
             background: lightgray;
-            height: 100vh;
             display: grid;
             place-items: center;
           }
