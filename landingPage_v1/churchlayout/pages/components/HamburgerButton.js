@@ -1,7 +1,15 @@
-const HamburgerButton = () => {
+import { useState } from "react";
+
+function HamburgerButton() {
+  const [isOpen, setOpen] = useState(true);
+
   return (
     <>
-      <button>
+      <button
+        onClick={() => {
+          setOpen(!isOpen);
+        }}
+      >
         <div />
         <div />
         <div />
@@ -30,16 +38,26 @@ const HamburgerButton = () => {
           div {
             width: 2rem;
             height: 0.25rem;
-            background: red;
+            background: ${isOpen ? "gray" : "navy"};
             border-radius: 10px;
             transition: all 0.3s linear;
             position: relative;
             transform-origin: 1px;
           }
+          div:first-child {
+            transform: ${isOpen ? "rotate(45deg)" : "rotate(0deg)"};
+          }
+          div:nth-child(2) {
+            opacity: ${isOpen ? "0" : "1"};
+            transform: ${isOpen ? "rotate(-20deg)" : "rotate(0deg)"};
+          }
+          div:nth-child(3) {
+            transform: ${isOpen ? "rotate(-45deg)" : "rotate(0deg)"};
+          }
         `}
       </style>
     </>
   );
-};
+}
 
 export default HamburgerButton;
