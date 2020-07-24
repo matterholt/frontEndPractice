@@ -20,7 +20,7 @@ function LogoContainer() {
         @media (max-width: 768px) {
           .LogoContainer {
             width: 100vw;
-            background-color: blue;
+            height: 100px;
           }
         }
       `}</style>
@@ -28,28 +28,26 @@ function LogoContainer() {
   );
 }
 
-const HamburgerSwitch = ({ windowSize }) => {
-  const [isOpen, setOpen] = useState(false);
-
-  const handleChange = () => {
-    setOpen(!isOpen);
-  };
-
-  if (windowSize.width < 600) {
+const HamburgerSwitch = ({ windowSize, isOpen, handleChange }) => {
+  if (windowSize.width <= 600) {
     return (
       <>
         <HamburgerButton handleChange={handleChange} isOpen={isOpen} />
-        {isOpen ? <NavItems /> : null}
       </>
     );
   } else {
-    return <NavItems />;
+    return null;
   }
 };
 
-function NavItems() {
+function NavItems({ windowSize, isOpen, handleChange }) {
   return (
-    <>
+    <div className="nav_container">
+      <HamburgerSwitch
+        windowSize={windowSize}
+        isOpen={isOpen}
+        handleChange={handleChange}
+      />
       <ul className="nav_listItems">
         <li>Location</li>
         <li>Hours</li>
@@ -65,6 +63,11 @@ function NavItems() {
         }
         li:hover {
           color: cadetblue;
+        }
+        .nav_container {
+          position: relative;
+          top: 0;
+          left: 0;
         }
         .nav_listItems {
           display: flex;
@@ -92,10 +95,30 @@ function NavItems() {
             top: 0;
             background-color: gray;
             height: 100vh;
-            width: 30vw;
+            width: 100vw;
+            transform: ${isOpen ? "translate(0)" : "translate(100%)"};
+            transition: transform 0.3s ease-in-out;
           }
         }
       `}</style>
+    </div>
+  );
+}
+
+function NavContainer({ windowSize }) {
+  const [isOpen, setOpen] = useState(false);
+
+  const handleChange = () => {
+    setOpen(!isOpen);
+  };
+
+  return (
+    <>
+      <NavItems
+        windowSize={windowSize}
+        isOpen={isOpen}
+        handleChange={handleChange}
+      />
     </>
   );
 }
@@ -105,8 +128,7 @@ export default function TopNavBar() {
   return (
     <nav className="nav_container">
       <LogoContainer />
-      <HamburgerSwitch windowSize={size} />
-
+      <NavContainer windowSize={size} />
       <style global jsx>{`
         .nav_container {
           display: flex;

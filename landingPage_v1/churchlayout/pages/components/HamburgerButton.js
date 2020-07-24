@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function HamburgerButton({ handleChange, isOpen }) {
   return (
-    <>
+    <span>
       <button onClick={() => handleChange()}>
         <div />
         <div />
@@ -12,26 +12,27 @@ function HamburgerButton({ handleChange, isOpen }) {
         {`
           button {
             position: absolute;
-            top: 5%;
-            right: 2rem;
+            top: 30%;
+            right: ${isOpen ? "85vw" : "10vw"};
             display: flex;
             flex-direction: column;
             justify-content: space-around;
-            width: 2rem;
-            height: 2rem;
+            width: 3rem;
+            height: 3rem;
             background: transparent;
             border: none;
             cursor: pointer;
             padding: 0;
             z-index: 10;
+            transition: all 0.3s linear;
           }
           button:focus {
             outline: none;
           }
 
           div {
-            width: 2rem;
-            height: 0.25rem;
+            width: 3rem;
+            height: 0.4rem;
             background: ${isOpen ? "blue" : "navy"};
             border-radius: 10px;
             transition: all 0.3s linear;
@@ -50,7 +51,7 @@ function HamburgerButton({ handleChange, isOpen }) {
           }
         `}
       </style>
-    </>
+    </span>
   );
 }
 
