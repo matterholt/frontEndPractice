@@ -40,11 +40,13 @@ const BurgMenu = ({ toggle }) => {
           variants={{
             toOpen: {
               strokeDasharray: "30 30",
-              strokeDashoffset: "0px"
+              strokeDashoffset: "0px",
+              opacity: '1'
             },
             toClose: {
               strokeDasharray: "0px 30px",
-              strokeDashoffset: "-13px"
+              strokeDashoffset: "-13px",
+              opacity: '0'
             }
           }}
         />
