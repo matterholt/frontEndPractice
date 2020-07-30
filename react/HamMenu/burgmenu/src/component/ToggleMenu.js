@@ -8,6 +8,12 @@ const Path = props => (
     stroke="#000"
     strokeWidth="4"
     strokeLinecap="round"
+
+    transition={{
+      type: "spring",
+      stiffness: 200,
+      damping: 40
+    }}
     {...props}
   />
 )
@@ -15,8 +21,7 @@ const Path = props => (
 const BurgMenu = ({ toggle }) => {
 
   return (
-    <>
-      <button onClick={() => toggle()} >Toggle</button>
+    <button onClick={() => toggle()} >
       <svg width="39" height="35" viewBox="0 0 39 35" xmlns="http://www.w3.org/2000/svg">
         <Path
           d="M0 30H30L32.4056 28.6254C35.1914 27.0335 36.7566 23.9312 36.3817 20.7447L35.3688 12.1351C34.7799 7.12912 28.8723 4.77312 25 8V8L5.5 27.5"
@@ -34,12 +39,12 @@ const BurgMenu = ({ toggle }) => {
         <Path d="M0 18H30"
           variants={{
             toOpen: {
-              strokeDasharray: "30px 30",
-              strokeDashoffset: "1px"
+              strokeDasharray: "30 30",
+              strokeDashoffset: "0px"
             },
             toClose: {
-              strokeDasharray: "1px 33",
-              strokeDashoffset: "-2px"
+              strokeDasharray: "0px 30px",
+              strokeDashoffset: "-13px"
             }
           }}
         />
@@ -56,7 +61,17 @@ const BurgMenu = ({ toggle }) => {
           }}
         />
       </svg >
-    </>
+      <style jsx>{`
+           button {
+            background: none;
+            border: none;
+            padding: 0;
+            height: 130px;
+            width: 130px;
+            cursor: pointer;
+          }
+      `}</style>
+    </button>
   )
 }
 
