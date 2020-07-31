@@ -8,7 +8,6 @@ const Path = props => (
     stroke="#000"
     strokeWidth="4"
     strokeLinecap="round"
-
     transition={{
       type: "spring",
       stiffness: 200,
@@ -17,6 +16,43 @@ const Path = props => (
     {...props}
   />
 )
+
+
+const Ul = props => (
+  <motion.ul
+    margin='0'
+    padding='0'
+    listStyle='none'
+    {...props}
+  />
+)
+
+const SideMenu = () => {
+  return (
+    <Ul className="sideNav">
+      <li className="sideNav__item" >
+        <a href="#New">
+          New
+        </a>
+      </li>
+      <li className="sideNav__item" >
+        <a href="#Customs">
+          Customs
+        </a>
+      </li>
+      <li className="sideNav__item">
+        <a href="#Feature">
+          Feature
+        </a>
+      </li>
+      <li className="sideNav__item">
+        <a href="#Contact">
+          Contact
+        </a>
+      </li>
+    </Ul >
+  )
+}
 
 const BurgMenu = ({ toggle }) => {
 
@@ -87,6 +123,7 @@ function ToggleMenu(props) {
     >
       <motion.div>
         <BurgMenu toggle={() => updateIsOpen()} />
+        <SideMenu />
       </motion.div>
     </motion.nav>
 
@@ -94,34 +131,3 @@ function ToggleMenu(props) {
 }
 
 export default ToggleMenu;
-
-/**
- *
- *     <div
-      className="burger__container">
-      <button onClick={() => updateIsOpen()}>
-        <MySVG
-        />
-      </button>
-      {isOpen ? props.children : null}
-      <style jsx>
-        {`
-          button {
-            background: none;
-            border: none;
-            padding: 0;
-            height: 130px;
-            width: 130px;
-            cursor: pointer;
-          }
-          .burger__container{
-            grid-row: 2;
-
-            align-self:center;
-            position: relative;
-          }
-
-        `}
-      </style>
-    </div >
- */

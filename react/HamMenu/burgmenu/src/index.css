@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.sideNav {
+  background-color: cadetblue;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width: 50vw;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sideNav__item {
+  background-color: gray;
+  margin: 25px 0;
+  padding: 25px;
+  min-width: 150px;
+
+}
